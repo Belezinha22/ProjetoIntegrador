@@ -1,3 +1,14 @@
 *{
-    background-color: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: grey;
+}
+
+nav{
+    background: linear-gradient(to right , #AA00FF , #FF5E00) !important;
+}
+
+a{
+    color: white;
 }
