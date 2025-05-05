@@ -50,3 +50,5 @@ $ git push -u origin main
 🟢
 $ git push .
     - adiciona TODOS os arquivos que estão nos commits no nosso repositório local para o repositório no github
+
+belezinha
