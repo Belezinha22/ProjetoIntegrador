@@ -22,6 +22,7 @@ ul , li{
     --links-btns-hover-clr: #470c94;/*links e botoes hover*/
     --cta-clr: #FF5E00;/*CTA*/
     --line-clr: #2A2A2A;/*linhas*/
+    --boxes-clr: #EBEBEB;
 
 }
 
@@ -31,6 +32,7 @@ body{
     color: var(--text-clr);
     display: grid;
     grid-template-columns: auto 1fr;
+    overflow-x: hidden;
 }
 
 #sidebar{
@@ -98,7 +100,7 @@ main{
 
 .container{
     border: 1px solid var(--line-clr);
-    border-radius: 1em;
+    border-radius: 10px;
     margin-bottom: 20px;
     padding: min(3em , 15%);
     height: 400px;
@@ -115,7 +117,7 @@ main{
 }
 
 .main-text{
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .main-h2{
@@ -130,3 +132,66 @@ main{
     font-family: 'Instrument Sans', sans-serif;
 }
 
+.sn-btn{
+    cursor: pointer;
+    background-color: var(--cta-clr);
+    width: 200px;
+    height: 50px;
+    text-transform: uppercase;
+    color: var(--text-clr);
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.sn-btn:hover{
+    transform: translate(4px , 4px);
+}
+
+.container-boxes{
+    transform: translateY(150px);
+}
+
+.boxes-h2{
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2em;
+    display: inline;
+    background: linear-gradient(90deg, var(--cta-clr) , var(--cta-clr)) 0 1.2em/100% 2px repeat-x;
+    border-radius: 5px;
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 1em;
+    margin: 50px auto;
+    max-width: 100%;
+}
+  
+@media (max-width: 700px) {
+    .boxes {
+      grid-template-columns: 1fr;
+    }
+}
+    
+.box1, .box2, .box3, .box4 {
+    background: var(--boxes-clr);
+    border-radius: 10px;
+    height: 300px;
+    width: 100%;
+}    
+
+.box-icon-container{
+    display: grid;
+    color: var(--bg-clr);
+    transform: translate(50px , 100px);
+}
+
+.box-icon-container i{
+    font-size: 5rem;
+}
