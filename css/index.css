@@ -186,12 +186,12 @@ main{
     width: 100%;
 }    
 
-.box-icon-container{
-    display: grid;
+.fa-dumbbell , .fa-users , .fa-user-tie , .fa-heart-pulse{
+    font-size: 70px;
     color: var(--bg-clr);
-    transform: translate(50px , 100px);
 }
 
-.box-icon-container i{
-    font-size: 5rem;
+.boxes-tt{
+    text-align: center;
+    color: var(--bg-clr);
 }
