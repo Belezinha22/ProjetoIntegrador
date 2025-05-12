@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 *{
     padding: 0;
@@ -184,14 +184,29 @@ main{
     border-radius: 10px;
     height: 300px;
     width: 100%;
+    display: grid;
 }    
 
-.fa-dumbbell , .fa-users , .fa-user-tie , .fa-heart-pulse{
-    font-size: 70px;
-    color: var(--bg-clr);
+.box1-inside{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
 }
 
-.boxes-tt{
+.item{
+    background-color: rgba(0, 0, 0, 0.047);
     text-align: center;
+    color: black;
+}
+
+.item i{
+    font-size: 5em;
     color: var(--bg-clr);
+    text-align: center;
+    transform: translateY(105px);
+}
+
+.item-h2{
+    font-family: 'Inter', sans-serif;
 }
