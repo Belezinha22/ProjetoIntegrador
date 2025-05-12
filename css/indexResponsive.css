@@ -1,0 +1,5 @@
+@media(max-width: 450px){
+    .box1-inside{
+        grid-template-columns: 1fr;
+    }
+}
