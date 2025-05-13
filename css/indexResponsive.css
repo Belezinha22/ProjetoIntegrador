@@ -3,3 +3,15 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media(max-width: 1400px){
+    .card-content-p{
+        width: 300px !important;
+    }
+}
+
+@media(max-width: 1200px){
+    .box1.custom-card::before{
+        background: url('');
+    }
+}
