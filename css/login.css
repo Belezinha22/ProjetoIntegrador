@@ -1,0 +1,102 @@
+/* Reset básico: remove margens e paddings padrão e define box-sizing para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Corpo da página: fundo escuro, centraliza o conteúdo no meio da tela */
+  body {
+    background-color: #1a1a1a;
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura da tela inteira */
+  }
+  
+  /* Container principal da tela de login */
+  .container-login {
+    background-color: #ffffff; /* Fundo branco */
+    width: 400px; /* Largura fixa para desktop */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra ao redor */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse o container */
+  }
+  
+  /* Cabeçalho com o logo, usando degradê */
+  .logo {
+    background: linear-gradient(90deg, #a100ff, #ff5e00); /* Degradê horizontal */
+    color: white; /* Texto branco */
+    text-align: center; /* Centraliza o texto */
+    padding: 30px 0; /* Espaçamento interno vertical */
+    font-size: 24px; /* Tamanho do texto */
+    font-weight: bold; /* Texto em negrito */
+  }
+  
+  /* Formulário com campos alinhados em coluna */
+  .form-login {
+    padding: 30px; /* Espaço interno em todos os lados */
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Direção vertical (coluna) */
+  }
+  
+  /* Cada campo do formulário */
+  .campo {
+    margin-bottom: 20px; /* Espaço entre os campos */
+    display: flex;
+    flex-direction: column; /* Label acima do input */
+  }
+  
+  /* Estilo do texto do label */
+  .campo label {
+    margin-bottom: 5px; /* Espaço entre o label e o input */
+    font-weight: bold;
+    color: #333; /* Cinza escuro */
+  }
+  
+  /* Estilo dos campos de input */
+  .campo input {
+    padding: 12px; /* Espaço interno do input */
+    border: none; /* Sem borda padrão */
+    border-radius: 6px; /* Cantos arredondados */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Leve sombra */
+    background-color: #f5f5f5; /* Cor de fundo clara */
+    font-size: 16px; /* Tamanho do texto */
+  }
+  
+  /* Container do link "esqueci minha senha" */
+  .link-senha {
+    text-align: right; /* Alinha o texto à direita */
+    margin-bottom: 20px; /* Espaço abaixo do link */
+  }
+  
+  /* Estilo do link "esqueci minha senha" */
+  .link-senha a {
+    font-size: 14px;
+    color: #555; /* Cinza médio */
+    text-decoration: none; /* Remove sublinhado */
+  }
+  
+  .link-senha a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+  }
+  
+  /* Botão de login */
+  .btn-entrar {
+    padding: 12px; /* Espaço interno */
+    background-color: #ff5e00; /* Cor laranja vibrante */
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    border-radius: 6px; /* Cantos arredondados */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 16px;
+    cursor: pointer; /* Cursor de clique */
+    transition: background 0.3s ease; /* Animação suave na mudança de cor */
+  }
+  
+  /* Efeito ao passar o mouse no botão */
+  .btn-entrar:hover {
+    background-color: #e04f00; /* Laranja um pouco mais escuro */
+  }
+  
