@@ -274,6 +274,8 @@ main{
   }
 }
 
-.active{
+.fa-dumbbell{
+    font-size: 2.5em;
+    color: black;
     display: none;
 }

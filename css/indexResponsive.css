@@ -5,13 +5,43 @@
 }
 
 @media(max-width: 1400px){
-    .card-content-p{
-        width: 300px !important;
+    .card-content-p {
+        max-width: 90%;
+        width: auto;
+        text-align: center;
+        margin: auto;
     }
 }
 
 @media(max-width: 1200px){
     .box1.custom-card::before{
         background: url('');
+    }
+}
+
+@media(max-width: 1230px){
+    .card-span{
+        justify-content: center;
+        gap: 25px;
+    }
+}
+
+@media(max-width: 1000px){
+    .card-content-h3 , .card-content-p{
+        text-align: center;
+        margin: auto;
+    }
+
+    .animated-icon{
+        display: none;
+    }
+
+    .card-span{
+        display: none;
+    }
+
+    .fa-dumbbell{
+        text-align: center;
+        display: block;
     }
 }
