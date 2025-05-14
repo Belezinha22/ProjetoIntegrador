@@ -1,0 +1,169 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container principal em formato de linha (logo à esquerda, formulário à direita) */
+  .container-cadastro {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Bloco da logo com gradiente */
+  .logo-cadastro {
+    background: linear-gradient(90deg, #a100ff, #ff5e00);
+    color: white;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Estilo do formulário à direita */
+  .form-cadastro {
+    padding: 30px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Campo com label e input */
+  .campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .campo input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+  }
+  
+  /* Botão de cadastro */
+  .btn-cadastrar {
+    padding: 12px;
+    background-color: #ff5e00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-cadastrar:hover {
+    background-color: #e04f00;
+  }
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container principal em formato de linha (logo à esquerda, formulário à direita) */
+  .container-cadastro {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Bloco da logo com gradiente */
+  .logo-cadastro {
+    background: linear-gradient(90deg, #a100ff, #ff5e00);
+    color: white;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Estilo do formulário à direita */
+  .form-cadastro {
+    padding: 30px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Campo com label e input */
+  .campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .campo input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+  }
+  
+  /* Botão de cadastro */
+  .btn-cadastrar {
+    padding: 12px;
+    background-color: #ff5e00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-cadastrar:hover {
+    background-color: #e04f00;
+  }
+    

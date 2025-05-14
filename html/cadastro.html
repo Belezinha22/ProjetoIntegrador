@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Tela de Cadastro</title>
+  <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+  <div class="container-cadastro">
+    <!-- Logo -->
+    <div class="logo">
+      <h1>Logo</h1>
+    </div>
+
+    <!-- Texto de instrução -->
+    <div class="instrucoes">
+      <p>Preencha os campos abaixo para realizar o cadastro:</p>
+    </div>
+
+    <!-- Formulário -->
+    <form class="form-cadastro">
+      <!-- Nome -->
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+      </div>
+
+      <!-- CPF -->
+      <div class="campo">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+      </div>
+
+      <!-- Email -->
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+      </div>
+
+      <!-- Senha -->
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+      </div>
+
+      <!-- Repetir senha -->
+      <div class="campo">
+        <label for="repitaSenha">Repita sua senha</label>
+        <input type="password" id="repitaSenha" name="repitaSenha" placeholder="Repita a senha" required>
+      </div>
+
+      <!-- Peso -->
+      <div class="campo">
+        <label for="peso">Peso</label>
+        <input type="number" id="peso" name="peso" placeholder="Ex: 70" required>
+      </div>
+
+      <!-- Altura -->
+      <div class="campo">
+        <label for="altura">Altura</label>
+        <input type="number" id="altura" name="altura" placeholder="Ex: 1.70" step="0.01" required>
+      </div>
+
+      <!-- Botão cadastrar -->
+      <button type="submit" class="btn-cadastrar">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>
