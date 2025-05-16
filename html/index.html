@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GymUp</title>
+
+  <!-- Fontes e ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/indexResponsive.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- Fontes e ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Instrument+Sans&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="../img/logo/Logo-removebg-preview.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="../img/logo/Logo-removebg-preview.png" type="image/x-icon">
+  
 </head>
 <body>
-  <header>
+  <header id="header">
     <div class="logo">
-      <img src="../img/logo/Logo-removebg-preview.png" alt="Logo">
+      <img src="../img/logo/Logo-removebg-preview.png" alt="Logo FitPower">
       <h2>GymUp</h2>
     </div>
     <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
@@ -23,6 +24,7 @@
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#">Sobre</a></li>
+        <li><a href="#">Treinos</a></li>
         <li><a href="#">Planos</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
@@ -30,46 +32,96 @@
   </header>
 
   <section class="hero">
-    <h1>Transforme seu corpo</h1>
-    <p>Alcance seus objetivos com treinos personalizados e o melhor acompanhamento profissional.</p>
-    <button>Comece Agora</button>
+    <div class="hero-content">
+      <h1>Transforme seu <span>corpo</span>, transforme sua <span>vida</span></h1>
+      <p>Na FitPower, combinamos ciência do exercício, nutrição e mentalidade vencedora para ajudar você a alcançar resultados extraordinários.</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary">Comece Agora</button>
+        <button class="btn btn-secondary">Conheça Nossos Planos</button>
+      </div>
+    </div>
   </section>
 
   <section class="features">
-    <div class="feature-card">
-      <i class="fa-solid fa-dumbbell"></i>
-      <h3>Equipamentos Modernos</h3>
-      <p>Aparelhos de última geração para treinos eficientes.</p>
+    <div class="section-header">
+      <h2>Nossos Diferenciais</h2>
+      <p>Oferecemos uma abordagem completa para seu desenvolvimento físico e mental, com profissionais altamente qualificados e metodologia comprovada.</p>
     </div>
-    <div class="feature-card">
-      <i class="fa-solid fa-users"></i>
-      <h3>Comunidade Fitness</h3>
-      <p>Treine junto com pessoas com o mesmo objetivo que você.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fa-solid fa-dumbbell"></i>
+        </div>
+        <h3>Equipamentos Premium</h3>
+        <p>Academia equipada com os melhores aparelhos do mercado para todos os níveis de condicionamento.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3>Resultados Comprovados</h3>
+        <p>Metodologia baseada em evidências científicas para garantir seu progresso constante.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <h3>Segurança em Primeiro Lugar</h3>
+        <p>Todos os exercícios são supervisionados para garantir execução correta e evitar lesões.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <h3>Assessoria Nutricional</h3>
+        <p>Planos alimentares personalizados para potencializar seus resultados.</p>
+      </div>
     </div>
-    <div class="feature-card">
-      <i class="fa-solid fa-user-tie"></i>
-      <h3>Instrutores Qualificados</h3>
-      <p>Profissionais prontos para te acompanhar na jornada.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fa-solid fa-heart-pulse"></i>
-      <h3>Saúde em Primeiro Lugar</h3>
-      <p>Foco no bem-estar físico e mental.</p>
-    </div>
-  </section>
-
-  <section class="featured-classes">
-    <h2>
-      Aulas em destaques
-    </h2>
   </section>
 
   <footer>
-    <p>&copy; 2025 GymUp. Todos os direitos reservados.</p>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>FitPower</h3>
+        <p style="color: var(--secondary-text-clr);">Transformando vidas através do fitness desde 2010.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Planos</a></li>
+          <li><a href="#">Galeria</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Horário de Funcionamento</h3>
+        <ul>
+          <li>Segunda a Sexta: 6h - 22h</li>
+          <li>Sábado: 8h - 18h</li>
+          <li>Domingo: 9h - 13h</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contato</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+          <li><i class="fas fa-envelope"></i> contato@fitpower.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> Av. Fitness, 123 - São Paulo/SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 FitPower Academy. Todos os direitos reservados.</p>
+    </div>
   </footer>
-
-  <script src="../js/index.js">
-    
-  </script>
+  <script src="../js/index.js"></script>
 </body>
 </html>
