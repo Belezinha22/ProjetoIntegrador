@@ -353,3 +353,148 @@ footer {
   font-size: 0.9em;
 }
 
+/* Responsividade */
+@media (max-width: 992px) {
+  header {
+    padding: 1.5rem 2rem;
+  }
+  
+  nav ul {
+    gap: 1.8rem;
+  }
+  
+  .hero h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: rgba(30, 30, 30, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: calc(var(--navbar-height) + 2rem);
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  nav a:hover {
+    background-color: rgba(0, 230, 118, 0.1);
+    color: var(--accent-clr);
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  .hero {
+    padding: 2em 1em;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+  }
+  
+  .hero p {
+    font-size: 1.1em;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .features {
+    padding: 4em 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 70px;
+  }
+
+  header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .logo h2 {
+    font-size: 1.5rem;
+  }
+  
+  nav {
+    width: 90%;
+    padding-top: calc(var(--navbar-height) + 1rem);
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .section-header h2 {
+    font-size: 2em;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5em;
+  }
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== ACESSIBILIDADE ==================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
