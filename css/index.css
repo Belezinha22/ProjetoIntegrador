@@ -313,19 +313,29 @@ nav a:hover {
   border-radius: 2px;
 }
 
+.card-wrapper{
+  margin: 0 60px 35px;
+  padding: 20px 10px;
+  overflow: hidden;
+}
+
 .card-list .card-item {
   list-style: none;
 }
 
 .card-list .card-item .card-link {
-  width: 400px;
+  user-select: none;
   display: block;
   background-color: white;
-  padding: 18px;
+  padding: 14px;
   border-radius: 12px;
   text-decoration: none;
   transition: 0.2 ease;
   border: 2px solid transparent;
+}
+
+.card-list .card-item .card-link:active{
+  cursor: grabbing;
 }
 
 .card-list .card-item .card-link:hover{
@@ -350,6 +360,26 @@ nav a:hover {
   border-radius: 50px;
 }
 
+.card-list .card-link .badge.MI{
+  color: #b22485;
+  background: #f7dff5;
+}
+
+.card-list .card-link .badge.TF{
+  color: #b25a2b;
+  background-color: #ffe3d2;
+}
+
+.card-list .card-link .badge.TFz{
+  color: #205c20;
+  background-color: #d6f8d6;
+}
+
+.card-list .card-link .badge.clstn{
+  color: #856404;
+  background: #fff3cd;
+}
+
 .card-list .card-link .card-title {
   font-size: 1.19rem;
   color: #000;
@@ -372,6 +402,22 @@ nav a:hover {
 .card-list .card-link:hover .card-button {
   color: white;
   background-color: #5372f0;
+}
+
+.card-wrapper .swiper-pagination-bullet{
+  height: 14px;
+  width: 14px;
+  opacity: 0.5;
+  background: #5372f0;
+}
+
+.card-wrapper .swiper-pagination-bullet-active{
+  opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button{
+  color: #5372f0;
+  margin-top: -35px;
 }
 
 /* ==================== FOOTER ==================== */
@@ -583,5 +629,15 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px){
+  .card-wrapper{
+    margin: 0 10px 25px;
+  }
+
+  .card-wrapper .swiper-slide-button{
+    display: none;
   }
 }
