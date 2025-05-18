@@ -14,9 +14,15 @@
   </div>
 
   <div class="user-inputs">
-    <label>Peso (kg): <input type="number" id="peso" /></label>
-    <label>Altura (cm): <input type="number" id="altura" /></label>
-    <label>Idade: <input type="number" id="idade" /></label>
+    <label>Peso (kg):
+      <input type="number" id="peso" />
+    </label>
+    <label>Altura (cm):
+      <input type="number" id="altura" />
+    </label>
+    <label>Idade:
+      <input type="number" id="idade" />
+    </label>
     <label>Sexo:
       <select id="sexo">
         <option value="masculino">Masculino</option>
@@ -24,6 +30,10 @@
         <option value="outro">Outro</option>
       </select>
     </label>
+    <div class="imc-info">
+      <p><strong>IMC:</strong> <span id="imcResultado">--</span></p>
+      <p><strong>Nível:</strong> <span id="nivelUsuario">--</span></p>
+    </div>
     <button id="salvarDados" class="btn btn-primary">Salvar Dados</button>
   </div>
 

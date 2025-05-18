@@ -24,6 +24,7 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5em;
   margin: 2em 0;
+  align-items: end;
 }
 
 .user-inputs label {
@@ -52,8 +53,15 @@
 }
 
 #salvarDados {
-  margin-top: 1.5em;
+  margin-top: 1em;
   max-width: 220px;
+}
+
+.imc-info {
+  grid-column: span 2;
+  background-color: var(--feature-card-clr);
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .goal-selector {
@@ -121,13 +129,3 @@
   margin-bottom: 0.5em;
 }
 
-@media (max-width: 768px) {
-  .user-inputs {
-    grid-template-columns: 1fr;
-  }
-
-  .goal-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
