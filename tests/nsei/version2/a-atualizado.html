@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymUp | Criador de Treinos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Bai+Jamjuree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #FF6B6B;
+      --primary-dark: #E05555;
+      --secondary: #4ECDC4;
+      --bg-dark: #292F36;
+      --bg-darker: #1E2329;
+      --card-bg: #343A42;
+      --text-primary: #F7FFF7;
+      --text-secondary: #B8C0C8;
+      --border: #3D444E;
+      --success: #6BCB77;
+      --warning: #FFD166;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Bai Jamjuree', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      user-select: none;
+    }
+
+    .wrapper {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .left-panel {
+      width: 55%;
+      overflow-y: auto;
+      padding: 2rem;
+      background-color: var(--bg-darker);
+      min-width: 300px;
+    }
+
+    .right-panel {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border);
+      background-color: var(--bg-dark);
+      padding: 2rem;
+      overflow-y: auto;
+      min-width: 300px;
+    }
+
+    .resize-handle {
+      width: 10px;
+      background-color: var(--border);
+      cursor: col-resize;
+      transition: background-color 0.2s;
+    }
+
+    .resize-handle:hover {
+      background-color: var(--primary);
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Bai Jamjuree', sans-serif;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Meta Panel Styles */
+    .meta-panel {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .meta-panel h1 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .meta-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-stats {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      flex: 1;
+      background-color: var(--bg-dark);
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .stat-icon {
+      font-size: 1.5rem;
+    }
+
+    .stat-item div div:first-child {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .stat-item strong {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    /* Workout Creator Styles */
+    .workout-creator {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .workout-creator h1 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Bai Jamjuree', sans-serif;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    select.input-field[multiple] {
+      height: auto;
+      min-height: 120px;
+    }
+
+    /* Workout Display Styles */
+    .workout-display {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .workout-display h1 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Preview Styles */
+    .preview-panel {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .preview-panel h1 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .preview-content {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .preview-item {
+      margin-bottom: 1rem;
+    }
+
+    .preview-item strong {
+      color: var(--text-primary);
+      display: inline-block;
+      min-width: 120px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .wrapper {
+        flex-direction: column;
+      }
+      .left-panel, .right-panel {
+        width: 100% !important;
+        height: auto;
+      }
+      .right-panel {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .resize-handle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .meta-stats {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="left-panel">
+      <div class="container">
+        <header>
+          <div class="logo">GymUp</div>
+        </header>
+
+        <div class="meta-panel">
+          <h1>SUA JORNADA</h1>
+          <div class="meta-badge" id="metaAtual">--</div>
+          <div class="meta-stats">
+            <div class="stat-item">
+              <div class="stat-icon">📅</div>
+              <div>
+                <div>Frequência Ideal</div>
+                <strong id="diasIdeais">--</strong>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">⚡</div>
+              <div>
+                <div>Nível de Intensidade</div>
+                <strong id="nivelIntensidade">--</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="workout-creator">
+          <h1>CRIAR TREINO</h1>
+          <div class="input-group">
+            <label class="input-label">NOME DO TREINO</label>
+            <input type="text" id="nomeTreino" class="input-field" placeholder="Ex: Explosão de Peito">
+          </div>
+          <div class="input-group">
+            <label class="input-label">DIA DA SEMANA</label>
+            <select id="diaSemana" class="input-field">
+              <option value="Segunda">Segunda-feira</option>
+              <option value="Terça">Terça-feira</option>
+              <option value="Quarta">Quarta-feira</option>
+              <option value="Quinta">Quinta-feira</option>
+              <option value="Sexta">Sexta-feira</option>
+              <option value="Sábado">Sábado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label">FOCO MUSCULAR</label>
+            <select id="foco" class="input-field" multiple size="5">
+              <option value="Peito">Peito</option>
+              <option value="Costas">Costas</option>
+              <option value="Pernas">Pernas</option>
+              <option value="Ombros">Ombros</option>
+              <option value="Abdômen">Abdômen</option>
+              <option value="Braços">Braços</option>
+              <option value="Cardio">Cardio</option>
+              <option value="Funcional">Funcional</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label">OBSERVAÇÕES (opcional)</label>
+            <input type="text" id="observacoes" class="input-field" placeholder="Ex: Fazer 3 séries de 12 reps">
+          </div>
+          <button class="btn btn-primary" onclick="adicionarTreino()">
+            ADICIONAR TREINO
+          </button>
+        </div>
+
+        <div class="workout-display">
+          <h1>SUA ROTINA</h1>
+          <div id="listaPlanilha">
+            <div class="day-columns">
+              <div class="empty-state">
+                <div class="empty-icon">🏋️</div>
+                <p>Sua rotina está vazia</p>
+                <p>Adicione seu primeiro treino!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="resize-handle" id="resizeHandle"></div>
+    
+    <div class="right-panel">
+      <div class="preview-panel">
+        <h1>PRÉ-VISUALIZAÇÃO</h1>
+        <div class="preview-content" id="previewContent">
+          <div class="preview-item"><strong>Nome do Treino:</strong> <span id="previewNome">--</span></div>
+          <div class="preview-item"><strong>Dia da Semana:</strong> <span id="previewDia">--</span></div>
+          <div class="preview-item"><strong>Foco Muscular:</strong> <span id="previewFoco">--</span></div>
+          <div class="preview-item"><strong>Observações:</strong> <span id="previewObs">--</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Atualização em tempo real da pré-visualização
+    document.addEventListener('DOMContentLoaded', function() {
+      // Seleciona todos os campos de entrada
+      const inputs = document.querySelectorAll('#nomeTreino, #diaSemana, #observacoes');
+      const selectMultiple = document.getElementById('foco');
+      
+      // Adiciona listeners para campos de texto
+      inputs.forEach(input => {
+        input.addEventListener('input', updatePreview);
+      });
+      
+      // Adiciona listeners para selects
+      document.getElementById('diaSemana').addEventListener('change', updatePreview);
+      selectMultiple.addEventListener('change', updatePreview);
+      
+      // Atualiza a pré-visualização inicial
+      updatePreview();
+      
+      // Configura o redimensionamento do painel
+      setupResizable();
+    });
+    
+    function updatePreview() {
+      const nomeTreino = document.getElementById('nomeTreino').value;
+      const diaSemana = document.getElementById('diaSemana').value;
+      const foco = Array.from(document.getElementById('foco').selectedOptions).map(opt => opt.value).join(', ');
+      const observacoes = document.getElementById('observacoes').value;
+      
+      // Atualiza os elementos de pré-visualização
+      document.getElementById('previewNome').textContent = nomeTreino || '--';
+      document.getElementById('previewDia').textContent = diaSemana || '--';
+      document.getElementById('previewFoco').textContent = foco || '--';
+      document.getElementById('previewObs').textContent = observacoes || '--';
+    }
+    
+    function adicionarTreino() {
+      // Aqui você pode adicionar a lógica para salvar o treino
+      alert('Treino adicionado com sucesso!');
+      // Limpar os campos se necessário
+      // document.getElementById('nomeTreino').value = '';
+      // document.getElementById('observacoes').value = '';
+    }
+    
+    // Função para tornar o painel redimensionável
+    function setupResizable() {
+      const resizeHandle = document.getElementById('resizeHandle');
+      const leftPanel = document.querySelector('.left-panel');
+      const rightPanel = document.querySelector('.right-panel');
+      const wrapper = document.querySelector('.wrapper');
+      
+      let isResizing = false;
+      let lastX = 0;
+      
+      resizeHandle.addEventListener('mousedown', (e) => {
+        isResizing = true;
+        lastX = e.clientX;
+        document.body.style.cursor = 'col-resize';
+        leftPanel.style.userSelect = 'none';
+        leftPanel.style.pointerEvents = 'none';
+        rightPanel.style.userSelect = 'none';
+        rightPanel.style.pointerEvents = 'none';
+      });
+      
+      document.addEventListener('mousemove', (e) => {
+        if (!isResizing) return;
+        
+        const dx = e.clientX - lastX;
+        const leftPanelWidth = leftPanel.offsetWidth;
+        const newLeftWidth = leftPanelWidth + dx;
+        const wrapperWidth = wrapper.offsetWidth;
+        
+        // Define limites mínimos e máximos para o redimensionamento
+        const minWidth = 300; // Largura mínima em pixels
+        const maxWidth = wrapperWidth - 300; // Largura máxima
+        
+        if (newLeftWidth > minWidth && newLeftWidth < maxWidth) {
+          leftPanel.style.width = `${newLeftWidth}px`;
+          rightPanel.style.width = `calc(100% - ${newLeftWidth}px - 10px)`;
+          lastX = e.clientX;
+        }
+      });
+      
+      document.addEventListener('mouseup', () => {
+        isResizing = false;
+        document.body.style.cursor = '';
+        leftPanel.style.userSelect = '';
+        leftPanel.style.pointerEvents = '';
+        rightPanel.style.userSelect = '';
+        rightPanel.style.pointerEvents = '';
+      });
+    }
+  </script>
+</body>
+</html>

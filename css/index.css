@@ -342,6 +342,7 @@ section .section-header h2:hover {
   text-decoration: none;
   transition: 0.2 ease;
   border: 2px solid transparent;
+  height: 100%;
 }
 
 .card-list .card-item .card-link:active{
@@ -715,3 +716,4 @@ footer {
     display: none;
   }
 }
+

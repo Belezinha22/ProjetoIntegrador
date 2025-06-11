@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout com Abas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --tab-height: 40px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    .wrapper {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left-panel {
+      width: 30%;
+      background-color: #2a2d2e;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tabs-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background-color: #252526;
+      border-bottom: 1px solid #3e3e42;
+    }
+
+    .tabs-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .tabs-container::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+
+    .tabs-container::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+
+    .tabs-container::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+
+    .tabs-container {
+      scrollbar-width: thin;
+      scrollbar-color: #444 #1e1e1e;
+    }
+
+    .tabs {
+      display: inline-flex;
+      height: var(--tab-height);
+      align-items: center;
+      padding: 0 8px;
+      min-width: 100%;
+    }
+
+    .tab-button {
+      height: calc(var(--tab-height) - 4px);
+      min-width: 100px;
+      max-width: 200px;
+      padding: 0 12px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      font-weight: 500;
+      color: #b8b8b8;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+    }
+
+    .tab-button.active {
+      background-color: #1e1e1e;
+      color: white;
+      border-top: 2px solid #007acc;
+    }
+
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: #1e1e1e;
+    }
+
+    .tab-content {
+      background-color: #1e1e1e;
+      padding: 16px;
+      flex: 1;
+      display: none;
+      overflow-y: auto;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    #add-tab {
+      padding: 0 12px;
+      height: calc(var(--tab-height) - 8px);
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-left: 4px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      gap: 6px;
+    }
+
+    #add-tab:hover {
+      background-color: #0062a3;
+    }
+
+    .tab-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-grow: 1;
+    }
+
+    .tab-title[contenteditable="true"] {
+      outline: 2px solid #007acc;
+      background-color: #252526;
+      border-radius: 2px;
+      padding: 0 4px;
+    }
+
+    .tab-actions {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tab-action {
+      color: #888;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .tab-action:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Painel esquerdo -->
+    <div class="left-panel">
+      <h2>Conteúdo de Teste</h2>
+      <p>Este é um painel lateral com conteúdo fictício.</p>
+      <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+      </ul>
+      <p>Você pode usar essa área para navegação, configurações, etc.</p>
+    </div>
+
+    <!-- Painel direito com abas -->
+    <div class="right-panel">
+      <div class="tabs-container">
+        <div class="tabs" id="tab-buttons">
+          <button class="tab-button active" data-tab-id="tab1">
+            <span class="tab-title" ondblclick="editTabTitle(this)">tela 1</span>
+            <div class="tab-actions">
+              <i class="fas fa-pencil-alt tab-action" onclick="event.stopPropagation(); editTabTitle(this.closest('.tab-button').querySelector('.tab-title'))"></i>
+              <i class="fas fa-times tab-action" onclick="event.stopPropagation(); removeTab('tab1', this.closest('.tab-button'))"></i>
+            </div>
+          </button>
+          <button id="add-tab" onclick="addTab()">
+            <i class="fas fa-plus"></i>
+            <span>Adicionar</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="tab1" class="tab-content active">
+        Conteúdo da tela 1
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let tabCount = 1;
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+      const button = document.querySelector(`.tab-button[data-tab-id="${tabId}"]`);
+      const content = document.getElementById(tabId);
+      if (button) button.classList.add('active');
+      if (content) content.classList.add('active');
+    }
+
+    function addTab() {
+      tabCount++;
+      const tabId = `tab${tabCount}`;
+      const tabTitle = `Aba ${tabCount}`;
+
+      // Criar botão
+      const newBtn = document.createElement('button');
+      newBtn.className = 'tab-button';
+      newBtn.setAttribute('data-tab-id', tabId);
+
+      const span = document.createElement('span');
+      span.className = 'tab-title';
+      span.innerText = tabTitle;
+      span.setAttribute('ondblclick', 'editTabTitle(this)');
+
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'tab-actions';
+
+      const editIcon = document.createElement('i');
+      editIcon.className = 'fas fa-pencil-alt tab-action';
+      editIcon.onclick = (e) => {
+        e.stopPropagation();
+        editTabTitle(span);
+      };
+
+      const closeIcon = document.createElement('i');
+      closeIcon.className = 'fas fa-times tab-action';
+      closeIcon.onclick = (e) => {
+        e.stopPropagation();
+        removeTab(tabId, newBtn);
+      };
+
+      actionsDiv.appendChild(editIcon);
+      actionsDiv.appendChild(closeIcon);
+
+      newBtn.appendChild(span);
+      newBtn.appendChild(actionsDiv);
+
+      const addButton = document.getElementById('add-tab');
+      document.getElementById('tab-buttons').insertBefore(newBtn, addButton);
+
+      // Criar conteúdo
+      const newContent = document.createElement('div');
+      newContent.className = 'tab-content';
+      newContent.id = tabId;
+      newContent.innerText = `Conteúdo da ${tabTitle}`;
+      document.querySelector('.right-panel').appendChild(newContent);
+
+      // Ativar nova aba
+      showTab(tabId);
+      newBtn.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    }
+
+    function editTabTitle(element) {
+      element.setAttribute('contenteditable', 'true');
+      element.focus();
+
+      const finish = () => {
+        if (!element.innerText.trim()) {
+          element.innerText = 'Nova aba';
+        }
+        element.removeAttribute('contenteditable');
+      };
+
+      element.addEventListener('blur', finish, { once: true });
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          element.blur();
+        }
+      }, { once: true });
+    }
+
+    function removeTab(tabId, button) {
+      const content = document.getElementById(tabId);
+      if (content) content.remove();
+      if (button) button.remove();
+
+      if (!document.querySelector('.tab-content.active')) {
+        const first = document.querySelector('.tab-content');
+        if (first) showTab(first.id);
+      }
+    }
+
+    // Clique nas abas
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-button');
+      if (btn && btn.id !== 'add-tab' && !e.target.classList.contains('tab-action')) {
+        const tabId = btn.getAttribute('data-tab-id');
+        showTab(tabId);
+      }
+    });
+  </script>
+</body>
+</html>
