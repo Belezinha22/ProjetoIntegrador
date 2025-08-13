@@ -1,0 +1,183 @@
+PROJETO INTEGRADOR I 
+
+ 
+
+Amandha Côco 
+
+Andrei dos Santos Pinto 
+
+Gabriel Bacchiega de Jesus 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TEMA: PLATAFORMA PARA USUÁRIOS DE ACADEMIA 
+
+ 
+
+ 
+
+O que o sistema deve fazer: 
+
+O sistema que tem como objetivo auxiliar alunos de academia, deve contar com: 
+
+ 
+
+Funcionalidades obrigatórias: 
+
+Edição de dados, metas e ... 
+
+Configuração de dados pessoais (peso, altura, etc.); 
+
+Definições de metas opções: metas para iniciantes, para hipertrofia, para emagrecimento e definição, para performance e condicionamento, para bem-estar e saúde: 
+
+Metas para Iniciantes: criar o hábito de treinar regularmente, melhorar o condicionamento físico geral, aprender a executar os exercícios corretamente. 
+
+Metas para Hipertrofia: aumentar a força e resistência muscular, melhorar a postura e estabilidade corporal, desenvolver grupos musculares específicos (exemplo: pernas, costas, braços). 
+
+Metas para Emagrecimento e Definição: reduzir percentual de gordura corporal, aumentar o gasto calórico diário, melhorar a resistência cardiovascular. 
+
+Metas para Performance e Condicionamento: aumentar resistência aeróbica (exemplo: correr 5 km sem parar), melhorar o desempenho em treinos funcionais ou de alta intensidade, aumentar a mobilidade e flexibilidade. 
+
+Metas para Bem-estar e Saúde: reduzir dores musculares e melhorar a postura, aumentar a qualidade do sono e disposição diária, desenvolver uma rotina de treinos equilibrada para melhorar a saúde geral. 
+
+ 
+
+Organização da Rotina de Treino 
+
+Criação e personalização de planilhas de treinos (nome do treino, dia da semana, foco muscular); 
+
+Auxílio na criação de planilhas de acordo com as metas estabelecidas; 
+
+ 
+
+Execução dos Exercícios com Visualização e Orientação 
+
+Biblioteca de vídeos/imagens mostrando a execução correta dos exercícios; 
+
+Orientações sobre postura e respiração; 
+
+Alertas sobre erros comuns para evitar lesões; 
+
+ 
+
+Registro de Progressão de Carga e Histórico 
+
+Registro de PR (personal record) em todos os exercícios existentes na plataforma; 
+
+Histórico de PR; 
+
+ 
+
+Modo Offline 
+
+Possibilidade de visualizar os treinos sem internet; 
+
+ 
+
+Explicação e Orientação sobre Suplementação  
+
+Explicação sobre os suplementos comuns e orientação para consumo; 
+
+ 
+
+Objetivo do projeto: 
+
+Nosso projeto tem como objetivo desenvolver um sistema para usuários de academia, ajudando na visualização da execução do exercício, organização de rotinas de treino, detalhes sobre a progressão de carga, sugestão de exercícios e outras funcionalidades, garantindo a segurança e reduzindo o tempo do usuário na academia. Utilizaremos aplicativo móvel, priorizando a velocidade do sistema. O sistema será compatível com vários tipos de telas. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requisitos Funcionais (RF) 
+
+RF_01 – O sistema deve permitir o cadastro de usuários com os seguintes dados obrigatórios: nome, sobrenome, e-mail, senha, confirmação de senha, CPF, peso atual e altura. 
+
+RF_02 – O sistema deve permitir login de usuários com e-mail e senha. 
+
+RF_03 – O sistema deve permitir recuperação de senha via e-mail através da opção “esqueci minha senha”. 
+
+RF_04 – O sistema deve permitir redefinir senha via perfil, com envio de e-mail. 
+
+RF_05 – O sistema deve permitir o cadastro e login de instrutores. 
+
+RF_06 – O sistema deve permitir a edição de dados pessoais do usuário (peso, altura etc.). 
+
+RF_07 – O sistema deve permitir que o usuário defina e edite metas de treino. 
+
+RF_08 – O sistema deve oferecer opções de metas: iniciantes, hipertrofia, emagrecimento e definição, performance e condicionamento, bem-estar e saúde. 
+
+RF_09 – O sistema deve permitir a criação e personalização de planilhas de treino com nome, dia da semana e foco muscular. 
+
+RF_10 – O sistema deve sugerir treinos personalizados com base nas metas definidas. 
+
+RF_11 – O sistema deve conter biblioteca com vídeos ou imagens de execução correta dos exercícios. 
+
+RF_12 – O sistema deve fornecer orientações de postura e respiração durante os exercícios. 
+
+RF_13 – O sistema deve emitir alertas sobre erros comuns na execução dos exercícios. 
+
+RF_14 – O sistema deve permitir o registro de PR (Personal Record) por exercício. 
+
+RF_15 – O sistema deve manter um histórico de PRs registrados pelo usuário. 
+
+RF_16 – O sistema deve permitir o acesso a planilhas de treino mesmo sem conexão com a internet (modo offline). 
+
+RF_17 – O sistema deve apresentar explicações e orientações sobre suplementos alimentares. 
+
+RF_18 – O sistema deve exibir informações detalhadas sobre cada exercício, incluindo: 
+
+RF_18.1 – Como executar 
+
+RF_18.2 – Como funciona a progressão de carga 
+
+RF_18.3 – Sugestão de carga 
+
+RF_18.4 – Sugestão de repetições 
+
+RF_19 – O sistema deve gerar uma rotina de treino personalizada para o usuário. 
+
+ 
+
+Requisitos Não Funcionais (RNF) 
+
+RNF_01 – O sistema deve possuir uma interface intuitiva e acessível para todos os tipos de usuários. 
+
+RNF_02 – O sistema deve ser responsivo, compatível com diferentes tamanhos de tela. 
+
+RNF_03 – O sistema deve priorizar a velocidade de carregamento e desempenho. 
+
+RNF_04 – O sistema deve estar disponível como aplicativo móvel. 
+
+RNF_05 – O sistema deve permitir que apenas administradores e instrutores possam adicionar ou modificar conteúdo da plataforma. 
+
+ 
+
+O QUE TEREMOS NO SITE 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
