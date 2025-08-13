@@ -1,5 +1,6 @@
-const express = reuqire('express')
+const express = require('express')
 const path = require('path')
+const { Socket } = require('socket.io')
 
 const app = express()
 const server = require('http').createServer(app)
@@ -14,5 +15,9 @@ app.use('/', (req , res) => {
     res.render('html/criarRotina.html')
 })
 
-server.listen(3000)
+io.on('connection' , Socket =>{
+    console.log(`Usuário conectado: ${socket.id}`)
+})
+
+server.listen(5500)
 
