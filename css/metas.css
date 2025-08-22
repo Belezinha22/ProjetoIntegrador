@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-clr);
+  background-color: var(--bg-clr) !important;
   color: var(--text-clr);
   line-height: 1.6;
   padding-top: var(--navbar-height);
@@ -111,18 +111,58 @@ nav a:hover {
   color: var(--accent-clr);
 }
 
-.featured-classes {
-  padding: 4em 3em;
-}
-
-.featured-classes h2 {
-  text-align: center;
+.plnTreino-h1{
+  margin-left: 30px;
+  color: var(--text-clr);
   font-family: 'Poppins', sans-serif;
   font-size: 2.5em;
   position: relative;
 }
 
-.featured-classes h2::after {
+.cards{
+  margin: 10px 20px 0px 0px;
+}
+
+.card-list{
+  display: flex;
+  width: 100%;
+  gap: 20px;             /* Espaçamento entre imagens */
+  justify-content: center;
+}
+
+.card-item {
+  position: relative;
+  flex: 1 1 calc(33.333% - 40px); /* 3 por linha no desktop */
+  flex-direction: column;
+  max-width: 400px;               /* Limite para não estourar */
+  background-color: var(--text-clr);
+  height: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.card-item:hover{
+  transform: translateY(-5px);
+}
+
+.card-img {
+  width: 100%;
+  height: 250px;        /* Altura maior */
+  object-fit: cover;    /* Corta mantendo proporção */
+  border-radius: 10px !important;
+}
+
+.badge{
+  width: 100%;
+  color: black !important;
+  font-size: 1.1rem !important;
+  position: relative;
+  text-align: center;
+}
+
+.badge::after{
   content: '';
   position: absolute;
   bottom: -10px;
@@ -134,72 +174,97 @@ nav a:hover {
   border-radius: 2px;
 }
 
-.card-wrapper {
-  margin: 0 60px 35px;
-  padding: 20px 10px;
-  overflow: hidden;
+.card-desc{
+  width: 90%;
+  padding: 5px;
 }
 
-.card-list .card-item {
-  list-style: none;
+.card-choose{
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgba(216, 216, 216, 0.7);
+  transition: all .3s ease;
+  position: absolute;
+  left: 5%;
+  bottom: 12px;
+  margin-top: 0;
 }
 
-.card-list .card-item .card-link {
-  display: block;
-  background-color: white;
-  padding: 14px;
-  border-radius: 12px;
-  text-decoration: none;
-  border: 2px solid transparent;
-  height: 100%;
+.card-choose:hover{
+  background-color: var(--cta-clr);
+  .fa-arrow-right{
+    transform: translateX(8px);
+  }
 }
 
-.card-list .card-link .card-image {
+.fa-arrow-right{
+  transition: all .3s ease;
+}
+
+.choose{
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content{
+  height: 600px;
+  width: 600px !important;
+}
+
+.modal-title span{
+  font-size: 14px;
+  opacity: 80%;
+}
+
+.modal-img{
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 10px;
+  height: 100%;        /* Altura maior */
+  object-fit: cover;    /* Corta mantendo proporção */
+  border-radius: 10px !important;
 }
 
-.card-list .card-link .badge {
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin: 16px 0 18px;
-  width: fit-content;
-  border-radius: 50px;
+.locked{
+  opacity: 10%;
+  pointer-events: none;
+  user-select: none;
 }
 
-.badge.Ini { color: #b22485; background: #f7dff5; }
-.badge.Hip { color: #b25a2b; background-color: #ffe3d2; }
-.badge.e_d { color: #205c20; background-color: #d6f8d6; }
-.badge.p_c { color: #856404; background: #fff3cd; }
-.badge.b_s { color: #258601; background: #7bf44f; }
-
-.card-list .card-link .card-title {
-  font-size: 1.19rem;
-  color: #000;
-  font-weight: 600;
+.modal-list ul {
+    list-style-type: none; /* tira as bolinhas padrão */
+    padding-left: 0;
+    margin: 0;
 }
 
-.card-list .card-link .card-button {
-  height: 35px;
-  width: 35px;
-  color: #5372f0;
-  border-radius: 50px;
-  margin: 30px 0 5px;
-  background: none;
-  cursor: pointer;
-  border: 2px solid #5372f0;
-  transform: rotate(-45deg);
+.modal-list > ul > li {
+    background: #f8f9fa; /* cor clara tipo card */
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #198754; /* verde Bootstrap */
 }
 
-.card-wrapper .swiper-pagination-bullet {
-  height: 14px;
-  width: 14px;
-  background: #5372f0;
+.modal-list ul ul { 
+    margin-top: 8px;
+    margin-left: 20px;
+    list-style-type: disc; /* ativa bolinhas na sublista */
 }
 
-.card-wrapper .swiper-slide-button {
-  color: #5372f0;
+.modal-list ul ul li {
+    background: none;
+    padding: 4px 0;
+    border: none;
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: space-between !important;
 }

@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.fromTo('.features',
+    {
+      y: -300,
+      opacity: 0
+    },
+    {
+      y: 0,
+      opacity: 1,
+      delay: 2,
+      duration: 7,
+      ease: "power2.out"
+    }
+  )
+})
+
 // Seleção de elementos
 const toggleBtn = document.getElementById('menu-toggle');
 const navbar = document.getElementById('navbar');
@@ -7,12 +23,12 @@ const navLinks = document.querySelectorAll('nav a');
 // Controle do menu mobile
 toggleBtn.addEventListener('click', () => {
   const isOpen = navbar.classList.toggle('active');
-  
+
   // Animação do ícone do menu
-  toggleBtn.innerHTML = isOpen 
-    ? '<i class="fa-solid fa-xmark"></i>' 
+  toggleBtn.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
     : '<i class="fa-solid fa-bars"></i>';
-  
+
   // Bloqueio do scroll quando menu está aberto
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
@@ -32,11 +48,11 @@ navLinks.forEach(link => {
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
-  
+
   // Adiciona/remove classe scrolled
   if (currentScroll > 50) {
     header.classList.add('scrolled');
-    
+
     // Esconde/mostra navbar durante scroll
     if (currentScroll > lastScroll && !navbar.classList.contains('active')) {
       header.style.transform = 'translateY(-100%)';
@@ -47,7 +63,7 @@ window.addEventListener('scroll', () => {
     header.classList.remove('scrolled');
     header.style.transform = 'translateY(0)';
   }
-  
+
   lastScroll = currentScroll;
 });
 
@@ -79,7 +95,7 @@ new Swiper('.card-wrapper', {
     prevEl: '.swiper-button-prev',
   },
 
-  breakpoints:{
+  breakpoints: {
     0: {
       slidesPerView: 1
     },
