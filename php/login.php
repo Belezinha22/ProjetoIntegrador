@@ -1,3 +1,40 @@
+<?php
+session_start();
+include 'conexao.php';
+
+$msg = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = "SELECT id, nome, senha FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($senha, $row['senha'])) {
+            // ✅ Inicia sessão
+            $_SESSION['usuario_id'] = $row['id'];
+            $_SESSION['usuario_nome'] = $row['nome'];
+
+            // ✅ Redireciona para index.php
+            header("Location: index.php");
+            exit();
+        } else {
+            $msg = "❌ Senha incorreta!";
+        }
+    } else {
+        $msg = "❌ Usuário não encontrado!";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,11 +55,11 @@
     <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     <nav id="navbar">
       <ul>
-        <li><a href="../index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="metas.html">Metas</a></li>
+        <li><a href="../php/index.php">Início</a></li>
+        <li><a href="../html/sobre.html">Sobre</a></li>
+        <li><a href="../php/meta_criar.php">Metas</a></li>
         <li><a href="#">Planos</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="../html/contato.html">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -34,16 +71,17 @@
         <p>Acesse sua conta para continuar sua jornada fitness</p>
       </div>
       
-      <form id="login-form" class="auth-form">
+      <!-- FORMULÁRIO DE LOGIN -->
+      <form id="login-form" class="auth-form" method="post" action="">
         <div class="form-group">
           <label for="login-email">E-mail</label>
-          <input type="email" id="login-email" required>
+          <input type="email" id="login-email" name="email" required>
         </div>
         
         <div class="form-group">
           <label for="login-password">Senha</label>
           <div class="password-input">
-            <input type="password" id="login-password" required>
+            <input type="password" id="login-password" name="senha" required>
             <button type="button" class="toggle-password">
               <i class="fa-regular fa-eye"></i>
             </button>
@@ -54,13 +92,16 @@
         <button type="submit" class="btn btn-primary auth-btn">Entrar</button>
         
         <div class="auth-footer">
-          <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+          <p>Não tem uma conta? <a href="../php/cadastrar.php">Cadastre-se</a></p>
         </div>
       </form>
+
+      <?php if (!empty($msg)): ?>
+        <p style="margin-top:15px; font-weight:bold; color:red;"><?= $msg ?></p>
+      <?php endif; ?>
     </div>
   </section>
 
-  <script src="../js/auth.js"></script>
   <script src="../js/index.js"></script>
 </body>
 </html>

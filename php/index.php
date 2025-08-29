@@ -1,3 +1,8 @@
+<?php session_start(); 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,14 +27,23 @@
     </div>
     <button class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     <nav id="navbar">
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="metas.html">Metas</a></li>
-        <li><a href="#">Planos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+  <ul>
+    <li><a href="../php/index.php">Início</a></li>
+    <li><a href="../html/sobre.html">Sobre</a></li>
+    <li><a href="../php/meta_criar.php">Metas</a></li>
+    <li><a href="#">Planos</a></li>
+    <li><a href="../html/contato.html">Contato</a></li>
+
+    <?php if (isset($_SESSION['usuario_id'])): ?>
+      <!-- Se estiver logado -->
+      <li><a href="perfil.php">Perfil</a></li>
+    <?php else: ?>
+      <!-- Se não estiver logado -->
+      <li><a href="login.php">Entrar</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>
+
   </header>
 
   <section class="hero">

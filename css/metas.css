@@ -232,12 +232,6 @@ nav a:hover {
   border-radius: 10px !important;
 }
 
-.locked{
-  opacity: 10%;
-  pointer-events: none;
-  user-select: none;
-}
-
 .modal-list ul {
     list-style-type: none; /* tira as bolinhas padrão */
     padding-left: 0;
@@ -267,4 +261,11 @@ nav a:hover {
 .modal-footer{
   display: flex;
   justify-content: space-between !important;
+}
+
+.footerBtns{
+  width: 100%;
+  display: flex;
+  justify-content: end !important;
+  gap: 10px;
 }

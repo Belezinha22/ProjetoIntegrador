@@ -1,0 +1,84 @@
+@import url('login.css'); /* reaproveita estilo base */
+
+.perfil-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 6rem 1rem 2rem;
+  background-color: var(--bg-clr);
+}
+
+.perfil-container {
+  background-color: var(--dark-section-clr);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem;
+  border: 1px solid var(--gray);
+}
+
+.perfil-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent-clr);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  color: var(--secondary-text-clr);
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  background-color: var(--feature-card-clr);
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-clr);
+}
+
+.msg {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--cta-clr);
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-right: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-clr);
+  color: var(--dark-section-clr);
+}
+
+.btn-danger {
+  background-color: #e53935;
+  color: #fff;
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: var(--gray-dark);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+}
